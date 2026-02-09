@@ -1,3 +1,5 @@
+import userCard from "./userCard";
+
 export default function App(){
   const users = [
     {
@@ -13,7 +15,17 @@ export default function App(){
   ]
 
   return(
-    <h1>User Dhashboard</h1>
+    <div>
+      <h1>User Dhashboard</h1>
+      <Wrapper title="User List">
+        {
+          user.map((user,index)=>(
+            <userCard key={index} user={user}/>
+          ))
+        }
+        <userCard/>
 
+      </Wrapper>
+    </div>
   );
 }
