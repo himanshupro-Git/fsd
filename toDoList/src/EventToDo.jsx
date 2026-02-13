@@ -1,35 +1,31 @@
+import './EventToDo.css'  
 export default function EventToDo(){
     function handleSubmit(e){
-        e.preventDefault();  // prevent the page reloading
-        const input = e.target.value;
-        const taskValue = input.value.trim();
-        if(taskValue === ""){
-            alert("cannot add empty taks");
+        e.preventDefault();
+        const input=e.target.task;
+        const taskValue=input.value.trim();
+        if(taskValue===""){
+            alert("cannot add empty task")
             return;
-        }
-
-        const li = document.createElement("li");
-        li.innerHTML = `<span>${taskValue}</span>
-        <button class="deleteBtn">Delete</button>`;
-
-        document.getElementById("taskList").appendChild(li);
     }
-
+    const li=document.createElement("li");
+    li.innerHTML=`<span>${taskValue}</span>
+    <button class="deleteBtn">DELETE</button>`;
+    document.getElementById("tasklist").appendChild(li);
+}
     function handleListClick(e){
-        if(e.target.className==="deleBtn"){
+        if(e.target.className==="deleteBtn"){
             e.target.parentElement.remove();
         }
     }
-
     return(
         <>
-        <h1>To Do list</h1>
+        <h1>To do list</h1>
         <form onSubmit={handleSubmit}>
-            <input type="text" name="tast" placeholder="Enter the Task" id="" />
-            <button type="submit">Add Task</button>
+        <input className="inputTxt" type="text" name="task" placeholder="Enter your task" />
+        <button type="submit">Add Task</button>
         </form>
-        <ul id="tasklist" onClick={handleListClick}></ul>
-        
+        <ol id="tasklist" onClick={handleListClick}></ol>
         </>
     )
 }
