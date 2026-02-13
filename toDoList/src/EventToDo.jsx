@@ -19,13 +19,15 @@ export default function EventToDo(){
         }
     }
     return(
-        <>
+        < div className='main'>
+
         <h1>To do list</h1>
         <form onSubmit={handleSubmit}>
         <input className="inputTxt" type="text" name="task" placeholder="Enter your task" />
         <button type="submit">Add Task</button>
         </form>
         <ol id="tasklist" onClick={handleListClick}></ol>
-        </>
+        </div>
+        
     )
 }
