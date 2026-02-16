@@ -3,9 +3,9 @@ import EventToDo from './EventToDo'
 import Counter from './Counter'
 function App() {
   return (
-    <div>
+    <div className='mainbox'>
       <EventToDo/>
-      <Counter/>
+      {/* <Counter/> */}
     </div>
   )
 }
