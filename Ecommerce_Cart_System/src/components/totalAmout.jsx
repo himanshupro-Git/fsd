@@ -1,8 +1,8 @@
-export default function totalAmount({amount}){
-    return(
-        <div>
-            <p>Amount:{amount}</p>
 
-        </div>
-    )
-}
+// export default function TotalAmount({product}){
+//     return(
+//         <div>
+
+//         </div>
+//     )
+// }
