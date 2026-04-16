@@ -2,10 +2,12 @@ import { useState } from 'react';
 import Header from './components/Header';
 import ProductList from './components/ProductList';
 import CartBox from './components/CartBox';
+import ProductSummary from './components/ProductSummary';
 
 export default function App(){
 
 	const [cart, setCart] = useState([]);
+	const [Summary, setSummary] = useState([]);
 
 	const products = [
 		{
@@ -35,22 +37,35 @@ export default function App(){
 	];
 	function addToCart(product){
 		setCart([...cart, product]);
+		setSummary([...Summary, product]);
 	}
 	function removeFromCart(product){
 		setCart(cart.filter(item => item.id !== product.id));
 	}
+
+
+
 	return (
 		<div style={{padding:20}}>
+			<div>
+
 			<Header cartCount={cart.length} />
 			<ProductList
 				products={products}
 				addToCart={addToCart}
 			/>
+
+			<h2>Product Summary</h2>
+
+			<ProductSummary product={Summary}/>
+			</div>
+
 			<h2>CART SYSTEM</h2>
 			<CartBox
 				cart={cart}
 				removeFromCart={removeFromCart}
 			/>
+
 		</div>
 	);
 }

@@ -1,4 +1,6 @@
-export default function ProductCard({ product, addToCart }){
+import ProductSummary from "./ProductSummary";
+
+export default function ProductCard({ product, addToCart}){
 
 	function handleCart(){
 		addToCart(product);

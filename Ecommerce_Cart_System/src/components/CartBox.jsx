@@ -11,9 +11,6 @@ export default function CartBox({ cart }){
 			padding:"10px"
 		}}>
 			<h4>Total Amount: {total}</h4>
-            <ul>
-                
-            </ul>
 
 			<form style={{display:"flex",alignItems:"center",gap:"20px"}}>
 				<p>Enter your address:</p>
