@@ -7,12 +7,13 @@ readStream.on('data',(chunk)=>{
 
 });
 
-readStream.on('end',()=>{
-    console.log("Reached at the end fo file");
+// readStream.on('end',()=>{
+//     console.log("Reached at the end fo file");                 // instead of using this line of code we can use the code below
     
+// });
+
+readStream.pipe(writeStream); // Creating  pipe  between readStream and writestream for better streaming
+writeStream.on("finish",()=>{
+    console.log("End of stream"); // calling on method of writestream with even finish to decalare and 
 });
 
-// const writeStream = fs.createWriteStream('./output.txt');
-// writeStream.on(
-
-// )
