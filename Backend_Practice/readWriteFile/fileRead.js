@@ -1,4 +1,3 @@
-const { log } = require("console");
 const fs = require("fs");
 filePath = "./test.txt";
 const result = fs.readFileSync(filePath,"utf-8");
