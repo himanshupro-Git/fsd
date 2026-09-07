@@ -20,10 +20,7 @@ let students = [
     }
 ]
 
-// app.get('/students', (req,res)=>{
-//     res.json(students);
-//     res.statusCode(200)
-// })
+
 
 // GET method
 app.get('/students/:id', (req, res)=>{
@@ -74,6 +71,56 @@ app.delete('/students/:id',(req,res)=>{
     })
 })
 
+
+app.put('/student/:id', (req, res)=>{
+    const id = parseInt(req.params.id);
+    const student = students.find(s => s.id === id);
+
+    if(!student){
+        res.status(404).json({
+            message:"Student not found"
+        })
+    }
+
+    student.name = req.body.name;
+    student.age = req.body.age;
+    student.course = req.body.course;
+
+    res.json(student);
+})
+
+app.patch('/student/:id', (req, res)=>{
+    const id = parseInt(req.params.id);
+    const {name, age, course} = req.body;
+    const student = students.find(s => s.id === id);
+
+    if(!student){
+        res.status(404).json({
+            message:"Student not found"
+        })
+    }
+
+    if(name!=undefined){
+        name = req.body.name;
+    }
+    if(age!=undefined){
+        age = req.body.age;
+    }
+    if(course!=undefined){
+        course = req.body.course;
+    }
+
+    res.json(student);
+})
+
+
+
+app.get('/search',(req,res)=>{
+    const course = req.query.course;
+    const age = req.query.age;
+    const student = students.filter(s=>s.course.toLowerCase() === course.toLowerCase() && s.age === age);
+    res(json);
+})
 
 
 app.listen(PORT,()=>{
